@@ -23,7 +23,7 @@ SearchAgents_no=1000; % Number of search agents
 
 Max_iteration=5; % Maximum numbef of iterations
 NrElem=150;
-dim=NrElem/2-1;
+dim=NrElem/2-2;
 % Load details of the selected benchmark function
 %[lb,ub,dim,fobj]=Get_Functions_details(Function_name);
 
@@ -69,11 +69,11 @@ display(['The best optimal value of the objective funciton found by bGWO is : ',
 display([num2str(N),num2str(Max_iteration),num2str(NrElem)]);
 m = Best_pos;  
 %x = linspace(1,Max_iteration,length(m)+2);
-m = [m 1]; 
+m = [1 m 1]; 
 u = linspace(0,1,1000);
 
 AFopt  = fobj(m,u);           Gainopt  = 20*log10(AFopt);
-AForig = fobj(ones(1,dim+1),u);  Gainorig = 20*log10(AForig);
+AForig = fobj(ones(1,dim+2),u);  Gainorig = 20*log10(AForig);
 %% 
 
 figure,
@@ -89,7 +89,7 @@ ylabel('20log_1_0|FF_n(u)|')
 n=0;
 m = Best_pos;  
 x = linspace(0.1,0.9,length(m)+2);
-m = [m 1]; 
+m = [1 m 1]; 
 for i = 1:length(m)        
     if m(i)==1
         plot(x(i),-10,'ro','MarkerFaceColor','r')
