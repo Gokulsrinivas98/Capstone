@@ -1,5 +1,5 @@
 
-function[minc]=Figure11_13()
+function[gen,minc]=Figure11_13()
 % clear all
 % close all
 tic;
